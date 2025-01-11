@@ -21,7 +21,8 @@ import javax.swing.JOptionPane;
  */
 public class recommodationpage extends javax.swing.JFrame {
 
-   
+    private String loggedInEmail;
+    
     public void openWebpage(String url) {
         try {
             Desktop desktop = Desktop.getDesktop();
@@ -41,6 +42,7 @@ public class recommodationpage extends javax.swing.JFrame {
 
     public recommodationpage() {
         initComponents();
+        this.loggedInEmail = loggedInEmail;
     }
 
     /**
@@ -171,9 +173,7 @@ public class recommodationpage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -194,8 +194,8 @@ public class recommodationpage extends javax.swing.JFrame {
                                 .addGap(123, 123, 123)
                                 .addComponent(jButton7)
                                 .addGap(134, 134, 134)
-                                .addComponent(jButton8)))
-                        .addContainerGap(161, Short.MAX_VALUE))))
+                                .addComponent(jButton8)))))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,7 +281,7 @@ public class recommodationpage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dashboard dashboardFrame = new dashboard();  // Corrected the typo to Dashboard
+        dashboard dashboardFrame = new dashboard(loggedInEmail);  // Corrected the typo to Dashboard
         dashboardFrame.setVisible(true);              // Makes the frame visible
         dashboardFrame.pack();                       // Adjusts the frame size to fit its components
         dashboardFrame.setLocationRelativeTo(null);  // Centers the frame on the screen

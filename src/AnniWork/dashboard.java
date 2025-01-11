@@ -8,9 +8,15 @@ import java.util.logging.Logger;
 
 
 public class dashboard extends javax.swing.JFrame {
-    String loggedInEmail;
-
-    public dashboard() {
+    static private String loggedInEmail;
+    
+    public dashboard(String loggedInEmail) {
+        initComponents();
+        this.loggedInEmail = loggedInEmail;
+        
+    }
+    public dashboard()
+    {
         initComponents();
         show(position);
     }
@@ -219,6 +225,11 @@ public class dashboard extends javax.swing.JFrame {
         jButton_Gems.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gemstone.png"))); // NOI18N
         jButton_Gems.setText("   Hidden Gems");
         jButton_Gems.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_Gems.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GemsActionPerformed(evt);
+            }
+        });
 
         jButton_TopImdb.setBackground(new java.awt.Color(0, 0, 0));
         jButton_TopImdb.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
@@ -238,6 +249,11 @@ public class dashboard extends javax.swing.JFrame {
         jButton_Rate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/videographer.png"))); // NOI18N
         jButton_Rate.setText("  Documentaries");
         jButton_Rate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_Rate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_RateActionPerformed(evt);
+            }
+        });
 
         jButton_Rate1.setBackground(new java.awt.Color(0, 0, 0));
         jButton_Rate1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 18)); // NOI18N
@@ -245,6 +261,11 @@ public class dashboard extends javax.swing.JFrame {
         jButton_Rate1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/satisfaction.png"))); // NOI18N
         jButton_Rate1.setText("  Ratings & Reviews");
         jButton_Rate1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_Rate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_Rate1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout BackgroundLayout = new javax.swing.GroupLayout(Background);
         Background.setLayout(BackgroundLayout);
@@ -323,7 +344,7 @@ public class dashboard extends javax.swing.JFrame {
 
    
     private void jButton_ProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ProfileActionPerformed
-        UserInfo UserInfoFrame = new UserInfo();
+        UserInfo UserInfoFrame = new UserInfo(loggedInEmail);
         UserInfoFrame.setVisible(true);
         UserInfoFrame.pack();
         UserInfoFrame.setLocationRelativeTo(null);
@@ -331,12 +352,12 @@ public class dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_ProfileActionPerformed
 
     private void jButton_WatchlistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_WatchlistActionPerformed
-//        String loggedInEmail;
-//        WatchList watchListFrame = new WatchList(loggedInEmail);
-//        watchListFrame.setVisible(true);
-//        watchListFrame.pack();
-//        watchListFrame.setLocationRelativeTo(null);
-//        this.dispose();
+        
+        WatchList watchListFrame = new WatchList(loggedInEmail);
+        watchListFrame.setVisible(true);
+        watchListFrame.pack();
+        watchListFrame.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_jButton_WatchlistActionPerformed
 
     private void jButton_NewRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NewRecActionPerformed
@@ -407,6 +428,29 @@ public class dashboard extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton_TopImdbActionPerformed
 
+    private void jButton_GemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GemsActionPerformed
+        // TODO add your handling code here:
+        HiddenGems hidgemFrame = new HiddenGems();
+        hidgemFrame.setVisible(true);
+        hidgemFrame.pack();
+        hidgemFrame.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton_GemsActionPerformed
+
+    private void jButton_RateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RateActionPerformed
+        // TODO add your handling code here:
+        Documentaries docmovieFrame = new Documentaries();
+        docmovieFrame.setVisible(true);
+        docmovieFrame.pack();
+        docmovieFrame.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton_RateActionPerformed
+
+    private void jButton_Rate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Rate1ActionPerformed
+    ratings rate = new ratings();
+    rate.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton_Rate1ActionPerformed
+
 
     public static void main(String args[]) {
  
@@ -431,7 +475,7 @@ public class dashboard extends javax.swing.JFrame {
     
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new dashboard().setVisible(true);
+                new dashboard(loggedInEmail).setVisible(true);
             }
         });
     }

@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
  * @author aniru
  */
 public class topImdb extends javax.swing.JFrame {
+     private String loggedInEmail;
 public void openWebpage(String url) {
     try {
         Desktop desktop = Desktop.getDesktop();
@@ -34,6 +35,7 @@ public void openWebpage(String url) {
 
     public topImdb() {
         initComponents();
+        this.loggedInEmail = loggedInEmail;
     }
 
     /**
@@ -337,7 +339,7 @@ public void openWebpage(String url) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dashboard dashboardFrame = new dashboard();  // Corrected the typo to Dashboard
+        dashboard dashboardFrame = new dashboard(loggedInEmail);  // Corrected the typo to Dashboard
         dashboardFrame.setVisible(true);              // Makes the frame visible
         dashboardFrame.pack();                       // Adjusts the frame size to fit its components
         dashboardFrame.setLocationRelativeTo(null);  // Centers the frame on the screen

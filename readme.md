@@ -20,7 +20,7 @@ A **feature-rich desktop application** built using **Java Swing** to provide use
 ## 📥 Installation and Usage
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/movie-recommendation-system.git```
+   git clone https://github.com/your-username/movie-recommendation-system.git
 2. Open the project in your Java IDE (e.g., NetBeans, Eclipse, IntelliJ).
 3. Compile and run the `Main` class to start the application.
 
